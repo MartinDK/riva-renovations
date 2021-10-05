@@ -4,7 +4,7 @@ const infoEl = document.getElementById('info');
 const imagesEl = document.getElementById('images');
 const urlBase = `https://res.cloudinary.com/dzdv2gzrk/`;
 const imageTransformation = ['w_400', 't_square', 't_gsquare'];
-let tag = `favourite`;
+let tag = `kitchens`;
 let url = `https://res.cloudinary.com/dzdv2gzrk/image/list/${tag}.json`;
 
 function tagSelected(tag) {
@@ -35,7 +35,7 @@ async function getImages(url) {
     const response = await fetch(url);
     const data = await response.json();
     const imgList = await data.resources;
-    console.log('res', response);
+    // console.log('res', response);
     // console.log('data', JSON.stringify(data.resources, null, 2));
     // outputEl.textContent = JSON.stringify(data.resources, null, 2);
     return await imgList;
