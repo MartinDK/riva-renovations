@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Quantico:wght@400;700&display=swap');
+
+:root {
+    /* font styles */
+    --font-family: Helvetica, Arial, sans-serif;
+    --font-family-headings: 'Quantico', sans-serif;
+    --font-size: 1.33rem;
+    --font-nav: 1.8rem;
+
+    /* text colors */
+    --heading-color: #444;
+    --text-color: #444;
+    --link-color: #0b63b6;
+    --red-text: #c55;
+
+    /* text box */
+    --bg-color: #e0e0e0;
+    --border-color: #aaa;
+
+    /* buttons */
+
+    --default-button-border: hsl(0deg 0% 50%);
+    --default-button-bg: hsl(0deg 0% 95%);
+    --default-button-text: var(--text-color);
+
+    --blue-button-border: hsl(207deg 90% 50%);
+    --blue-button-bg: hsl(207deg 90% 55%);
+    --blue-button-text: #fff;
+
+    --green-button-border: hsl(84deg 69% 40% / 80%);
+    --green-button-bg: hsl(84deg 69% 50% / 80%);
+    --green-button-text: hsl(84deg 69% 20% / 100%);
+
+    --disabled-button-border: hsl(0deg 0% 50% / 40%);
+    --disabled-button-bg: hsl(0deg 0% 65% / 30%);
+    --disabled-button-text: hsl(0deg 0% 50% / 90%);
+}
+
+html {
+    display: flex;
+    justify-content: center;
+    font-family: var(--font-family);
+}
+body {
+    max-width: 650px;
+    min-width: 550px;
+}
+h1,
+h2,
+h3,
+h4,
+h5 {
+    font-family: var(--font-family-headings);
+}
+#output {
+    height: 100px;
+    overflow: scroll;
+    background-color: #fefefe;
+    border: solid 1px #ddd;
+}
+#output:hover {
+    height: 300px;
+    transition: 1s;
+}
+#images {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    row-gap: 10px;
+}
+#modal {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.8);
+}
+.info {
+    padding-bottom: 10px;
+}
+.buttons {
+    padding-bottom: 10px;
+}
+span {
+    font-weight: 800;
+}
+img {
+    cursor: pointer;
+}
+.logo {
+    max-width: 600px;
+}

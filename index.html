@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Cloudinary Asset Delivery</title>
+        <link rel="stylesheet" href="styles.css" />
+        <style></style>
+    </head>
+    <body>
+        <div class="logo">
+            <!-- This will render the image fetched from a remote HTTP URL using Cloudinary -->
+            <img alt="Logo" src="../images/riva-renovations-logo.svg" />
+        </div>
+        <section class="main">
+            <h1>Cloudinary Asset Delivery</h1>
+            <p id="info"></p>
+            <div class="buttons">
+                <button onclick="tagSelected('renovations')">renovations</button>
+                <button onclick="tagSelected('kitchens')">kitchens</button>
+                <button onclick="tagSelected('favourite')">favourites</button>
+            </div>
+            <!-- <pre id="output"></pre> -->
+            <div id="images"></div>
+        </section>
+        <script src="script.js"></script>
+    </body>
+</html>
