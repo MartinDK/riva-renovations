@@ -15,41 +15,53 @@ function tagSelected(tag) {
 function openModal(imageUrl) {
     console.log(typeof imageUrl, imageUrl);
     const modalEl = document.createElement('div');
+    const loadingEl = document.createElement('span');
+    const closeEl = document.createElement('span');
     const imageEl = document.createElement('img');
+
     imageEl.src = `${urlBase}${imageTransformation[0]}${imageUrl}`;
+    imageEl.className = 'modal-image';
+
     modalEl.id = 'modal';
+
+    loadingEl.classList.add('loading');
+    loadingEl.innerText = 'loading...';
+
+    closeEl.classList.add('close-btn');
+    closeEl.innerText = 'CLOSE';
+
     modalEl.addEventListener('click', closeModal);
     modalEl.appendChild(imageEl);
-    bodyEl.appendChild(modalEl);
+    modalEl.appendChild(loadingEl);
+    modalEl.appendChild(closeEl);
     modalEl.classList.add('animate-s');
     modalEl.classList.add('animate-f');
+
+    bodyEl.appendChild(modalEl);
 }
 function closeModal(e) {
-    const el = e.path[0];
-    console.log(e.path[0]);
-    if (el.id === 'modal') {
-        e.path[0].remove();
+    const el = e.target;
+    const modalEl = document.getElementById('modal');
+    console.log(e);
+    if (el.id === 'modal' || el.className === 'close-btn') {
+        modalEl.remove();
     }
 }
 async function getImages(url) {
     const response = await fetch(url);
     const data = await response.json();
     const imgList = await data.resources;
-    // console.log('res', response);
-    // console.log('data', JSON.stringify(data.resources, null, 2));
-    // outputEl.textContent = JSON.stringify(data.resources, null, 2);
     return await imgList;
 }
 
 async function updateImages(images) {
-    infoEl.innerHTML = `<span>tag:</span>${tag} <span>no_images:</span>${images.length} <span>transformation:</span>${imageTransformation}`;
-    // console.log('images', images);
     images.forEach((image) => {
         if (image.format !== 'svg') {
             const imageEl = document.createElement('img');
             const imageUrl = `/v${image.version}/${image.public_id}.${image.format}`;
             imageEl.src = `${urlBase}${imageTransformation[1]}${imageUrl}`;
             imageEl.alt = image.context ? image.context.custom.alt : 'image';
+            imageEl.classList.add('thumbnail');
             imageEl.setAttribute('onClick', `openModal('${imageUrl}')`);
             imagesEl.appendChild(imageEl);
         }

@@ -45,8 +45,9 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    max-width: 650px;
+    max-width: 610px;
     min-width: 550px;
+    color: var(--text-color);
 }
 h1,
 h2,
@@ -54,6 +55,14 @@ h3,
 h4,
 h5 {
     font-family: var(--font-family-headings);
+}
+button {
+    padding: 5px;
+    border: solid 1px var(--default-button-border);
+    background: var(--default-button-bg);
+    border-radius: 3px;
+    color: var(--default-button-text);
+    font-size: 1rem;
 }
 #output {
     height: 100px;
@@ -68,8 +77,7 @@ h5 {
 #images {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-around;
-    row-gap: 10px;
+    gap: 10px;
 }
 #modal {
     display: flex;
@@ -81,6 +89,7 @@ h5 {
     width: 100vw;
     height: 100vh;
     background: rgba(0, 0, 0, 0.8);
+    cursor: pointer;
 }
 .info {
     padding-bottom: 10px;
@@ -93,8 +102,34 @@ span {
 }
 img {
     cursor: pointer;
+    max-width: 100%;
 }
 .logo {
     min-width: 450px;
     max-width: 500px;
+}
+.thumbnail {
+    max-width: 300px;
+    flex-basis: 32%;
+}
+.modal-image {
+    cursor: default;
+}
+.loading {
+    position: absolute;
+    z-index: -1;
+    color: whitesmoke;
+}
+.close-btn {
+    color: grey;
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+}
+.modal-image ~ span.close-btn:hover {
+    color: red;
+}
+.modal-image:not(:hover) ~ .close-btn {
+    color: whitesmoke;
 }
