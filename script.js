@@ -3,7 +3,7 @@ const outputEl = document.getElementById('output');
 const infoEl = document.getElementById('info');
 const imagesEl = document.getElementById('images');
 const urlBase = `https://res.cloudinary.com/dzdv2gzrk/`;
-const imageTransformation = ['w_400', 't_square', 't_gsquare'];
+const imageTransformation = ['w_800', 't_square', 't_gsquare'];
 let tag = `kitchens`;
 let url = `https://res.cloudinary.com/dzdv2gzrk/image/list/${tag}.json`;
 

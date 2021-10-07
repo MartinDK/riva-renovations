@@ -114,6 +114,13 @@ img {
 }
 .modal-image {
     cursor: default;
+    max-width: 80%;
+}
+.modal-image ~ span.close-btn:hover {
+    color: red;
+}
+.modal-image:not(:hover) ~ .close-btn {
+    color: whitesmoke;
 }
 .loading {
     position: absolute;
@@ -126,10 +133,4 @@ img {
     top: 20px;
     right: 20px;
     cursor: pointer;
-}
-.modal-image ~ span.close-btn:hover {
-    color: red;
-}
-.modal-image:not(:hover) ~ .close-btn {
-    color: whitesmoke;
 }
