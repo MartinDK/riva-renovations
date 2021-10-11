@@ -57,13 +57,16 @@ async function getImages(url) {
 async function updateImages(images) {
     images.forEach((image) => {
         if (image.format !== 'svg') {
+            const imageContainerEl = document.createElement('div');
             const imageEl = document.createElement('img');
             const imageUrl = `/v${image.version}/${image.public_id}.${image.format}`;
             imageEl.src = `${urlBase}${imageTransformation[1]}${imageUrl}`;
             imageEl.alt = image.context ? image.context.custom.alt : 'image';
+            imageContainerEl.classList.add('image-container');
             imageEl.classList.add('thumbnail');
             imageEl.setAttribute('onClick', `openModal('${imageUrl}')`);
-            imagesEl.appendChild(imageEl);
+            imageContainerEl.appendChild(imageEl);
+            imagesEl.appendChild(imageContainerEl);
         }
     });
 }
